@@ -3,20 +3,29 @@
         <div class="card-body">
           <h3 class="card-title">
                 <form action="" wire:submit="save">
-                    <div class="row align-center" style="margin-bottom: 1rem">
+                    <div class="row align-items-center" style="margin-bottom: 1rem">
                         <div class="col-6">
                             <input type="text" class="form-control @error('todo_name') is-invalid @enderror " name="todo_name" placeholder="Buy groceries" wire:model="todo_name">
                             @error('todo_name')
                                 <div class="invalid-feedback">{{$message}}</div>
                             @enderror
                         </div>
-                        <div class="col-4">
+                        <div class="col-2">
                               <button class="btn btn-primary" type="submit">
                                 Create Todo
                             </button>
                         </div>
                     </div>
                 </form>            
+                <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                    <div class="input-icon">
+                        <span class="input-icon-addon">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path></svg>
+                        </span>
+                        <input type="text" value="" class="form-control" placeholder="Search…" aria-label="Search in website" wire:model.live="search">
+                    </div>
+                </div>
           </h3>
           
           <table class="table table-sm table-borderless">

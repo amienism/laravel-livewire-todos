@@ -23,7 +23,10 @@
                         <!-- Download SVG icon from http://tabler-icons.io/i/search -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path></svg>
                         </span>
-                        <input type="text" value="" class="form-control" placeholder="Search…" aria-label="Search in website" wire:model.live="search">
+                        <input type="text" value="" class="form-control" placeholder="Search…" aria-label="Search in website" wire:model.live.debounce.1000ms="search">
+                        <span class="input-icon-addon" wire:loading.flex wire:target="search">
+                            <div class="spinner-border spinner-border-sm text-secondary" role="status"></div>
+                        </span>
                     </div>
                 </div>
           </h3>
@@ -52,7 +55,7 @@
                     </td>
                     <td class="text-left">
                         @if ($todo->is_completed)
-                            <span class="badge bg-success me-1"></span> Completed
+                            <span class="badge bg-success me-1" ></span> Completed
                         @else
                             <span class="badge bg-warning me-1"></span> Ongoing
                         @endif
